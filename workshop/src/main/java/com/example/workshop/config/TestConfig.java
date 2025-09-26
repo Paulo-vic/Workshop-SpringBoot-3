@@ -3,7 +3,9 @@ package com.example.workshop.config;
 import com.example.workshop.entities.Order;
 import com.example.workshop.entities.User;
 import com.example.workshop.entities.enums.OrderStatus;
+import com.example.workshop.repositories.CategoryRepository;
 import com.example.workshop.repositories.OrderRepository;
+import com.example.workshop.repositories.ProductRepository;
 import com.example.workshop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,6 +26,12 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public void run(String... args) throws Exception {
