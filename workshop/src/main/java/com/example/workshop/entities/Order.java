@@ -15,7 +15,6 @@ import java.util.Set;
 @Table(name = "tb_order")
 public class Order implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,6 +25,9 @@ public class Order implements Serializable {
     private Instant moment;
 
     private Integer orderStatus;
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -78,6 +80,14 @@ public class Order implements Serializable {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus.getCode();
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     @Override
